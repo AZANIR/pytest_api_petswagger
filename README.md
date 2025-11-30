@@ -3,6 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![Pytest](https://img.shields.io/badge/pytest-8.0+-green.svg)](https://pytest.org/)
+[![Tests](https://github.com/YOUR_USERNAME/pytest_api/actions/workflows/tests.yml/badge.svg)](https://github.com/YOUR_USERNAME/pytest_api/actions/workflows/tests.yml)
 
 Pytest framework for automated REST API testing with schema validation, logging, and multi-environment support.
 
@@ -17,7 +18,8 @@ Pytest framework for automated REST API testing with schema validation, logging,
 - [Schema Validation](#schema-validation)
 - [Writing Tests](#writing-tests)
 - [Logging](#logging)
-- [HTML Reports](#html-reports)
+- [Reports](#reports)
+- [CI/CD](#cicd)
 
 ---
 
@@ -447,21 +449,69 @@ def test_with_logging(api_client):
 
 ---
 
-## HTML Reports
+## Reports
 
-### Automatic generation
+### HTML Report (pytest-html)
 
 Report is automatically created in `reports/report.html` after each run.
 
-### Manual generation
-
 ```bash
-python -m pytest --html=reports/my_report.html --self-contained-html
+python -m pytest --html=reports/report.html --self-contained-html
 ```
 
-### Viewing report
+### CTRF JSON Report
 
-Open the `reports/report.html` file in a browser.
+Generate [Common Test Report Format](https://ctrf.io/) JSON report:
+
+```bash
+python -m pytest --ctrf ctrf-report.json
+```
+
+### Both reports
+
+```bash
+python -m pytest tests/ \
+  --html=reports/report.html \
+  --self-contained-html \
+  --ctrf ctrf-report.json \
+  -v
+```
+
+### Viewing reports
+
+- **HTML Report**: Open `reports/report.html` in a browser
+- **CTRF Report**: View `ctrf-report.json` or use [CTRF viewers](https://ctrf.io/)
+
+---
+
+## CI/CD
+
+### GitHub Actions
+
+The project includes a GitHub Actions workflow (`.github/workflows/tests.yml`) that:
+
+1. **Runs tests** on Python 3.11 and 3.12
+2. **Generates reports** (HTML + CTRF JSON)
+3. **Publishes CTRF summary** in PR/commit comments
+4. **Deploys reports** to GitHub Pages
+
+### Enabling GitHub Pages
+
+1. Go to repository **Settings** → **Pages**
+2. Set **Source** to `gh-pages` branch
+3. Reports will be available at: `https://YOUR_USERNAME.github.io/REPO_NAME/`
+
+### Manual workflow trigger
+
+You can manually trigger the workflow from the **Actions** tab.
+
+### Workflow badges
+
+Add to your README:
+
+```markdown
+[![Tests](https://github.com/YOUR_USERNAME/REPO_NAME/actions/workflows/tests.yml/badge.svg)](https://github.com/YOUR_USERNAME/REPO_NAME/actions/workflows/tests.yml)
+```
 
 ---
 
@@ -523,3 +573,6 @@ $env:PYTHONPATH += ";$(pwd)"              # Windows PowerShell
 - [Pydantic Documentation](https://docs.pydantic.dev/)
 - [JSON Schema](https://json-schema.org/)
 - [Petstore Swagger UI](https://petstore.swagger.io/)
+- [CTRF - Common Test Report Format](https://ctrf.io/)
+- [pytest-json-ctrf](https://github.com/infopulse/pytest-common-test-report-json)
+- [GitHub Actions Documentation](https://docs.github.com/en/actions)

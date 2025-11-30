@@ -24,6 +24,7 @@ reports/*
 logs/*
 !logs/.gitkeep
 *.log
+ctrf-report.json
 
 # IDE
 .idea/
