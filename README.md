@@ -4,40 +4,40 @@
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![Pytest](https://img.shields.io/badge/pytest-8.0+-green.svg)](https://pytest.org/)
 
-Pytest фреймворк для автоматизованого тестування REST API з валідацією схем, логуванням та підтримкою різних середовищ.
+Pytest framework for automated REST API testing with schema validation, logging, and multi-environment support.
 
-## Зміст
+## Table of Contents
 
-- [Вимоги](#вимоги)
-- [Встановлення](#встановлення)
-- [Структура проекту](#структура-проекту)
-- [Швидкий старт](#швидкий-старт)
-- [Конфігурація середовищ](#конфігурація-середовищ)
-- [Запуск тестів](#запуск-тестів)
-- [Валідація схем](#валідація-схем)
-- [Написання тестів](#написання-тестів)
-- [Логування](#логування)
-- [HTML Репорти](#html-репорти)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Project Structure](#project-structure)
+- [Quick Start](#quick-start)
+- [Environment Configuration](#environment-configuration)
+- [Running Tests](#running-tests)
+- [Schema Validation](#schema-validation)
+- [Writing Tests](#writing-tests)
+- [Logging](#logging)
+- [HTML Reports](#html-reports)
 
 ---
 
-## Вимоги
+## Requirements
 
 - Python 3.10+
-- pip (менеджер пакетів Python)
+- pip (Python package manager)
 
 ---
 
-## Встановлення
+## Installation
 
-### Крок 1: Клонування або завантаження проекту
+### Step 1: Clone or download the project
 
 ```bash
 git clone <repository-url>
 cd pytest_api
 ```
 
-### Крок 2: Створення віртуального середовища (рекомендовано)
+### Step 2: Create virtual environment (recommended)
 
 **Windows:**
 ```bash
@@ -51,13 +51,13 @@ python3 -m venv venv
 source venv/bin/activate
 ```
 
-### Крок 3: Встановлення залежностей
+### Step 3: Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Крок 4: Перевірка встановлення
+### Step 4: Verify installation
 
 ```bash
 python -m pytest --version
@@ -65,90 +65,90 @@ python -m pytest --version
 
 ---
 
-## Структура проекту
+## Project Structure
 
 ```
 pytest_api/
 │
-├── config/                          # Конфігурація
+├── config/                          # Configuration
 │   ├── __init__.py
-│   ├── settings.py                  # Налаштування через Pydantic
-│   └── environments/                # Файли середовищ
+│   ├── settings.py                  # Pydantic settings
+│   └── environments/                # Environment files
 │       ├── dev.env                  # Development
 │       ├── staging.env              # Staging
 │       └── prod.env                 # Production
 │
-├── src/                             # Вихідний код
+├── src/                             # Source code
 │   ├── __init__.py
-│   ├── api_client.py                # Головний API клієнт
-│   ├── schema_validator.py          # Валідатор JSON схем
+│   ├── api_client.py                # Main API client
+│   ├── schema_validator.py          # JSON schema validator
 │   │
-│   ├── http/                        # HTTP модуль
+│   ├── http/                        # HTTP module
 │   │   ├── __init__.py
-│   │   ├── methods.py               # HTTP методи (GET, POST, PUT, DELETE)
-│   │   └── client.py                # Базовий HTTP клієнт
+│   │   ├── methods.py               # HTTP methods (GET, POST, PUT, DELETE)
+│   │   └── client.py                # Base HTTP client
 │   │
-│   ├── services/                    # API сервіси (ендпоінти)
+│   ├── services/                    # API services (endpoints)
 │   │   ├── __init__.py
-│   │   ├── base_service.py          # Базовий клас сервісу
-│   │   ├── pet_service.py           # Pet API ендпоінти
-│   │   ├── store_service.py         # Store API ендпоінти
-│   │   └── user_service.py          # User API ендпоінти
+│   │   ├── base_service.py          # Base service class
+│   │   ├── pet_service.py           # Pet API endpoints
+│   │   ├── store_service.py         # Store API endpoints
+│   │   └── user_service.py          # User API endpoints
 │   │
-│   └── models/                      # Pydantic моделі
+│   └── models/                      # Pydantic models
 │       ├── __init__.py
 │       ├── pet.py                   # Pet, Category, Tag
 │       ├── store.py                 # Order
 │       └── user.py                  # User, ApiResponse
 │
-├── tests/                           # Тести
+├── tests/                           # Tests
 │   ├── __init__.py
-│   ├── conftest.py                  # Pytest fixtures та конфігурація
-│   ├── test_pet.py                  # Тести Pet API
-│   ├── test_store.py                # Тести Store API
-│   └── test_user.py                 # Тести User API
+│   ├── conftest.py                  # Pytest fixtures and configuration
+│   ├── test_pet.py                  # Pet API tests
+│   ├── test_store.py                # Store API tests
+│   └── test_user.py                 # User API tests
 │
-├── schemas/                         # Swagger/OpenAPI схеми
-│   └── swagger.json                 # Swagger специфікація API
+├── schemas/                         # Swagger/OpenAPI schemas
+│   └── swagger.json                 # API Swagger specification
 │
-├── logs/                            # Логи тестів (автостворюється)
-├── reports/                         # HTML репорти (автостворюється)
+├── logs/                            # Test logs (auto-created)
+├── reports/                         # HTML reports (auto-created)
 │
-├── pytest.ini                       # Конфігурація pytest
-├── requirements.txt                 # Залежності Python
-└── README.md                        # Документація
+├── pytest.ini                       # Pytest configuration
+├── requirements.txt                 # Python dependencies
+└── README.md                        # Documentation
 ```
 
 ---
 
-## Швидкий старт
+## Quick Start
 
-### 1. Запуск всіх тестів
+### 1. Run all tests
 
 ```bash
-# Тільки помилки (за замовчуванням)
+# Errors only (default)
 python -m pytest tests/ -v
 
-# Показати WARNING і вище
+# Show WARNING and above
 python -m pytest tests/ -v --log-cli-level=WARNING
 
-# Показати INFO і вище  
+# Show INFO and above
 python -m pytest tests/ -v --log-cli-level=INFO
 
-# Показати все (DEBUG)
+# Show everything (DEBUG)
 python -m pytest tests/ -v --log-cli-level=DEBUG
 
-# Повністю вимкнути логи в консолі
+# Completely disable console logs
 python -m pytest tests/ -v --log-cli-level=CRITICAL
 ```
 
-### 2. Запуск конкретного тест-файлу
+### 2. Run specific test file
 
 ```bash
 python -m pytest tests/test_pet.py -v
 ```
 
-### 3. Запуск конкретного тесту
+### 3. Run specific test
 
 ```bash
 python -m pytest tests/test_pet.py::TestCreatePet::test_create_pet_with_all_fields -v
@@ -156,13 +156,13 @@ python -m pytest tests/test_pet.py::TestCreatePet::test_create_pet_with_all_fiel
 
 ---
 
-## Конфігурація середовищ
+## Environment Configuration
 
-Фреймворк підтримує тестування на різних середовищах (dev, staging, prod).
+The framework supports testing on different environments (dev, staging, prod).
 
-### Файли середовищ
+### Environment Files
 
-Знаходяться в `config/environments/`:
+Located in `config/environments/`:
 
 **dev.env** (Development):
 ```env
@@ -188,10 +188,10 @@ TIMEOUT=60
 LOG_LEVEL=WARNING
 ```
 
-### Використання через CLI
+### CLI Usage
 
 ```bash
-# Development (за замовчуванням)
+# Development (default)
 python -m pytest --env=dev
 
 # Staging
@@ -206,103 +206,103 @@ python -m pytest --base-url=https://my-api.example.com/v2
 # Custom API key
 python -m pytest --api-key=my-secret-key
 
-# Комбінація
+# Combination
 python -m pytest --env=staging --base-url=https://custom-api.com/v2
 ```
 
 ---
 
-## Запуск тестів
+## Running Tests
 
-### По маркерам (типам тестів)
+### By markers (test types)
 
 ```bash
-# Тільки позитивні тести
+# Only positive tests
 python -m pytest -m positive
 
-# Тільки негативні тести
+# Only negative tests
 python -m pytest -m negative
 
-# Тільки boundary тести
+# Only boundary tests
 python -m pytest -m boundary
 
-# Комбінація маркерів
+# Marker combinations
 python -m pytest -m "positive and pet"
 python -m pytest -m "negative or boundary"
 ```
 
-### По API групах
+### By API groups
 
 ```bash
-# Тільки Pet API
+# Only Pet API
 python -m pytest -m pet
 
-# Тільки Store API
+# Only Store API
 python -m pytest -m store
 
-# Тільки User API
+# Only User API
 python -m pytest -m user
 
-# Pet та Store
+# Pet and Store
 python -m pytest -m "pet or store"
 ```
 
-### Додаткові опції
+### Additional options
 
 ```bash
 # Verbose output
 python -m pytest -v
 
-# Показати print statements
+# Show print statements
 python -m pytest -s
 
-# Зупинитись на першій помилці
+# Stop on first failure
 python -m pytest -x
 
-# Запустити останні failed тести
+# Run last failed tests
 python -m pytest --lf
 
-# Паралельний запуск (потребує pytest-xdist)
+# Parallel execution (requires pytest-xdist)
 python -m pytest -n auto
 
-# Генерація HTML репорту
+# Generate HTML report
 python -m pytest --html=reports/report.html --self-contained-html
 ```
 
 ---
 
-## Валідація схем
+## Schema Validation
 
-Фреймворк автоматично валідує відповіді API проти JSON схем зі Swagger файлу.
+The framework automatically validates API responses against JSON schemas from the Swagger file.
 
-### Як це працює
+### How it works
 
-1. `SwaggerSchemaValidator` завантажує `schemas/swagger.json`
-2. При кожному запиті витягується очікувана схема відповіді
-3. Відповідь валідується через `jsonschema` бібліотеку
-4. Помилки валідації логуються як warnings
+1. `SwaggerSchemaValidator` loads `schemas/swagger.json`
+2. For each request, the expected response schema is extracted
+3. Response is validated using the `jsonschema` library
+4. Validation errors are logged as warnings
 
-### Використання в тестах
+### Usage in tests
 
 ```python
 def test_get_pet_schema(api_client, schema_validator):
-    """Тест з ручною валідацією схеми."""
+    """Test with manual schema validation."""
     response = api_client.get_pet_by_id(1)
     
-    # Отримати схему з Swagger
+    # Get schema from Swagger
     pet_schema = schema_validator.get_definition_schema("Pet")
     
-    # Валідувати відповідь
+    # Validate response
     is_valid, error = schema_validator.validate(response.json(), pet_schema)
     
     assert is_valid, f"Schema validation failed: {error}"
 ```
 
-### Валідація required полів
+### Required fields validation
 
 ```python
 def test_required_fields(schema_validator):
-    """Перевірка що Pet має required поля."""
+    """Check that Pet has required fields."""
     pet_schema = schema_validator.get_definition_schema("Pet")
     
     # Pet requires: name, photoUrls
@@ -316,9 +316,9 @@ def test_required_fields(schema_validator):
 
 ---
 
-## Написання тестів
+## Writing Tests
 
-### Базова структура тесту
+### Basic test structure
 
 ```python
 import pytest
@@ -329,11 +329,11 @@ logger = logging.getLogger(__name__)
 
 @pytest.mark.pet
 class TestPetAPI:
-    """Тести для Pet API."""
+    """Tests for Pet API."""
     
     @pytest.mark.positive
     def test_create_pet(self, api_client, pet_data):
-        """Створення нового pet."""
+        """Create a new pet."""
         logger.info(f"Creating pet: {pet_data['name']}")
         
         response = api_client.create_pet(pet_data)
@@ -342,28 +342,28 @@ class TestPetAPI:
         assert response.json()["name"] == pet_data["name"]
 ```
 
-### Використання fixtures
+### Using fixtures
 
 ```python
-# Автоматичні fixtures з conftest.py
+# Automatic fixtures from conftest.py
 
 def test_with_pet_data(api_client, pet_data):
-    """pet_data - автоматично згенеровані тестові дані."""
+    """pet_data - automatically generated test data."""
     response = api_client.create_pet(pet_data)
     assert response.status_code == 200
 
 def test_with_created_pet(api_client, created_pet):
-    """created_pet - вже створений pet, видаляється після тесту."""
+    """created_pet - already created pet, deleted after test."""
     pet_id = created_pet["id"]
     response = api_client.get_pet_by_id(pet_id)
     assert response.status_code == 200
 ```
 
-### Нові стилі використання API клієнта
+### API client usage styles
 
 ```python
 def test_new_style_api(api_client):
-    """Новий стиль - через сервіси."""
+    """New style - via services."""
     # Pet operations
     api_client.pet.create(pet_data)
     api_client.pet.get_by_id(123)
@@ -379,28 +379,28 @@ def test_new_style_api(api_client):
     api_client.user.login("username", "password")
 
 def test_legacy_style_api(api_client):
-    """Старий стиль - прямі методи (backward compatible)."""
+    """Legacy style - direct methods (backward compatible)."""
     api_client.create_pet(pet_data)
     api_client.get_pet_by_id(123)
     api_client.find_pets_by_status("available")
 ```
 
-### Створення тестових даних через моделі
+### Creating test data with models
 
 ```python
 from src.models import Pet, Order, User
 
 def test_with_models():
-    """Використання Pydantic моделей."""
+    """Using Pydantic models."""
     
-    # Повний Pet
+    # Full Pet
     pet = Pet.create(name="Buddy", status=PetStatus.AVAILABLE)
     pet_data = pet.model_dump(by_alias=True, exclude_none=True)
     
-    # Мінімальний Pet (тільки required поля)
+    # Minimal Pet (only required fields)
     minimal_pet = Pet.create_minimal()
     
-    # Невалідні дані для негативних тестів
+    # Invalid data for negative tests
     invalid_data = Pet.create_invalid_missing_name()
     
     # Order
@@ -408,16 +408,16 @@ def test_with_models():
     
     # User
     user = User.create(username="testuser")
-    users = User.create_list(count=5)  # Список з 5 користувачів
+    users = User.create_list(count=5)  # List of 5 users
 ```
 
 ---
 
-## Логування
+## Logging
 
-### Автоматичне логування
+### Automatic logging
 
-Всі HTTP запити та відповіді автоматично логуються:
+All HTTP requests and responses are automatically logged:
 
 ```
 2024-01-15 10:30:45 [INFO] >>> POST https://petstore.swagger.io/v2/pet
@@ -426,12 +426,12 @@ def test_with_models():
 2024-01-15 10:30:46 [DEBUG]     Response body: {"id": 123, "name": "Buddy", ...}
 ```
 
-### Файли логів
+### Log files
 
-- Консоль: INFO рівень
-- Файл `logs/test_YYYYMMDD_HHMMSS.log`: DEBUG рівень
+- Console: ERROR level (configurable)
+- File `logs/test_YYYYMMDD_HHMMSS.log`: DEBUG level
 
-### Логування в тестах
+### Logging in tests
 
 ```python
 import logging
@@ -447,40 +447,40 @@ def test_with_logging(api_client):
 
 ---
 
-## HTML Репорти
+## HTML Reports
 
-### Автоматична генерація
+### Automatic generation
 
-Репорт автоматично створюється в `reports/report.html` після кожного запуску.
+Report is automatically created in `reports/report.html` after each run.
 
-### Ручна генерація
+### Manual generation
 
 ```bash
 python -m pytest --html=reports/my_report.html --self-contained-html
 ```
 
-### Перегляд репорту
+### Viewing report
 
-Відкрийте файл `reports/report.html` в браузері.
+Open the `reports/report.html` file in a browser.
 
 ---
 
-## Приклади команд
+## Command Examples
 
 ```bash
-# Повний тест-ран з репортом
+# Full test run with report
 python -m pytest tests/ -v --html=reports/report.html
 
-# Тести на staging з детальним логуванням
+# Tests on staging with detailed logging
 python -m pytest --env=staging -v -s
 
-# Тільки smoke тести (позитивні Pet тести)
+# Only smoke tests (positive Pet tests)
 python -m pytest -m "positive and pet" -v
 
-# Швидка перевірка - тільки перші 3 тести
+# Quick check - only first 3 tests
 python -m pytest tests/test_pet.py -v --maxfail=3
 
-# Запуск з custom URL
+# Run with custom URL
 python -m pytest --base-url=https://my-test-server.com/v2 -v
 ```
 
@@ -488,27 +488,27 @@ python -m pytest --base-url=https://my-test-server.com/v2 -v
 
 ## Troubleshooting
 
-### Помилка: ModuleNotFoundError
+### Error: ModuleNotFoundError
 
 ```bash
-# Переконайтесь що ви в правильній директорії
+# Make sure you're in the correct directory
 cd pytest_api
 
-# Перевстановіть залежності
+# Reinstall dependencies
 pip install -r requirements.txt
 ```
 
-### Помилка: pytest command not found
+### Error: pytest command not found
 
 ```bash
-# Використовуйте python -m pytest замість pytest
+# Use python -m pytest instead of pytest
 python -m pytest tests/ -v
 ```
 
-### Тести не знаходять модулі
+### Tests can't find modules
 
 ```bash
-# Додайте PYTHONPATH
+# Add PYTHONPATH
 export PYTHONPATH="${PYTHONPATH}:$(pwd)"  # Linux/macOS
 set PYTHONPATH=%PYTHONPATH%;%cd%          # Windows CMD
 $env:PYTHONPATH += ";$(pwd)"              # Windows PowerShell
@@ -516,11 +516,10 @@ $env:PYTHONPATH += ";$(pwd)"              # Windows PowerShell
 
 ---
 
-## Корисні посилання
+## Useful Links
 
 - [Pytest Documentation](https://docs.pytest.org/)
 - [Requests Library](https://requests.readthedocs.io/)
 - [Pydantic Documentation](https://docs.pydantic.dev/)
 - [JSON Schema](https://json-schema.org/)
 - [Petstore Swagger UI](https://petstore.swagger.io/)
-
