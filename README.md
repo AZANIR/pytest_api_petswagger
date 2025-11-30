@@ -42,12 +42,14 @@ cd pytest_api
 ### Step 2: Create virtual environment (recommended)
 
 **Windows:**
+
 ```bash
 python -m venv venv
 source venv/Scripts/activate
 ```
 
 **Linux/macOS:**
+
 ```bash
 python3 -m venv venv
 source venv/bin/activate
@@ -69,7 +71,7 @@ python -m pytest --version
 
 ## Project Structure
 
-```
+```text
 pytest_api/
 │
 ├── config/                          # Configuration
@@ -167,6 +169,7 @@ The framework supports testing on different environments (dev, staging, prod).
 Located in `config/environments/`:
 
 **dev.env** (Development):
+
 ```env
 BASE_URL=https://petstore.swagger.io/v2
 API_KEY=special-key
@@ -175,6 +178,7 @@ LOG_LEVEL=DEBUG
 ```
 
 **staging.env** (Staging):
+
 ```env
 BASE_URL=https://staging-petstore.swagger.io/v2
 API_KEY=staging-key
@@ -183,6 +187,7 @@ LOG_LEVEL=INFO
 ```
 
 **prod.env** (Production):
+
 ```env
 BASE_URL=https://petstore.swagger.io/v2
 API_KEY=prod-key
@@ -421,7 +426,7 @@ def test_with_models():
 
 All HTTP requests and responses are automatically logged:
 
-```
+```text
 2024-01-15 10:30:45 [INFO] >>> POST https://petstore.swagger.io/v2/pet
 2024-01-15 10:30:45 [DEBUG]     Request body: {"name": "Buddy", "photoUrls": [...]}
 2024-01-15 10:30:46 [INFO] <<< 200 OK (0.523s)
