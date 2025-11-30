@@ -1,0 +1,724 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "9.0.1"
+        },
+        "summary": {
+            "tests": 53,
+            "passed": 48,
+            "failed": 5,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1764545435.5381606,
+            "stop": 1764545438.66887
+        },
+        "tests": [
+            {
+                "name": "tests/test_pet.py::TestCreatePet::test_create_pet_with_all_fields",
+                "status": "passed",
+                "duration": 0.3716557409999979,
+                "start": 1764545435.612568,
+                "stop": 1764545435.984684,
+                "retries": 0,
+                "file_path": "tests/test_pet.py",
+                "tags": [
+                    "positive",
+                    "pet"
+                ]
+            },
+            {
+                "name": "tests/test_pet.py::TestCreatePet::test_create_pet_with_minimal_fields",
+                "status": "passed",
+                "duration": 0.04864145300000189,
+                "start": 1764545435.9854646,
+                "stop": 1764545436.0344336,
+                "retries": 0,
+                "file_path": "tests/test_pet.py",
+                "tags": [
+                    "positive",
+                    "pet"
+                ]
+            },
+            {
+                "name": "tests/test_pet.py::TestCreatePet::test_create_pet_missing_required_name",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.025227099999995062,
+                "start": 1764545436.03494,
+                "stop": 1764545436.096584,
+                "retries": 0,
+                "file_path": "tests/test_pet.py",
+                "tags": [
+                    "negative",
+                    "pet"
+                ],
+                "trace": "tests/test_pet.py:72: in test_create_pet_missing_required_name\n    assert response.status_code in [400, 405, 500], \\\nE   AssertionError: Expected error status, got 200\nE   assert 200 in [400, 405, 500]\nE    +  where 200 = <Response [200]>.status_code",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "tests/test_pet.py::TestCreatePet::test_create_pet_missing_required_photo_urls",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.025281864000000098,
+                "start": 1764545436.0971007,
+                "stop": 1764545436.1275012,
+                "retries": 0,
+                "file_path": "tests/test_pet.py",
+                "tags": [
+                    "negative",
+                    "pet"
+                ],
+                "trace": "tests/test_pet.py:90: in test_create_pet_missing_required_photo_urls\n    assert response.status_code in [400, 405, 500], \\\nE   AssertionError: Expected error status, got 200\nE   assert 200 in [400, 405, 500]\nE    +  where 200 = <Response [200]>.status_code",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "tests/test_pet.py::TestCreatePet::test_create_pet_invalid_status_value",
+                "status": "passed",
+                "duration": 0.024558993000006524,
+                "start": 1764545436.1279826,
+                "stop": 1764545436.1527996,
+                "retries": 0,
+                "file_path": "tests/test_pet.py",
+                "tags": [
+                    "negative",
+                    "pet"
+                ]
+            },
+            {
+                "name": "tests/test_pet.py::TestGetPet::test_get_existing_pet",
+                "status": "passed",
+                "duration": 0.07304392100000001,
+                "start": 1764545436.1531968,
+                "stop": 1764545436.2265553,
+                "retries": 0,
+                "file_path": "tests/test_pet.py",
+                "tags": [
+                    "positive",
+                    "pet"
+                ]
+            },
+            {
+                "name": "tests/test_pet.py::TestGetPet::test_get_non_existing_pet",
+                "status": "passed",
+                "duration": 0.024269920000001832,
+                "start": 1764545436.2271583,
+                "stop": 1764545436.251694,
+                "retries": 0,
+                "file_path": "tests/test_pet.py",
+                "tags": [
+                    "negative",
+                    "pet"
+                ]
+            },
+            {
+                "name": "tests/test_pet.py::TestGetPet::test_get_pet_invalid_id_format",
+                "status": "passed",
+                "duration": 0.024151017999997748,
+                "start": 1764545436.2521393,
+                "stop": 1764545436.276564,
+                "retries": 0,
+                "file_path": "tests/test_pet.py",
+                "tags": [
+                    "negative",
+                    "pet"
+                ]
+            },
+            {
+                "name": "tests/test_pet.py::TestGetPet::test_get_pet_with_zero_id",
+                "status": "passed",
+                "duration": 0.02399308300000058,
+                "start": 1764545436.2769907,
+                "stop": 1764545436.3012342,
+                "retries": 0,
+                "file_path": "tests/test_pet.py",
+                "tags": [
+                    "boundary",
+                    "pet"
+                ]
+            },
+            {
+                "name": "tests/test_pet.py::TestGetPet::test_get_pet_with_negative_id",
+                "status": "passed",
+                "duration": 0.024341504000013003,
+                "start": 1764545436.3016102,
+                "stop": 1764545436.3261707,
+                "retries": 0,
+                "file_path": "tests/test_pet.py",
+                "tags": [
+                    "boundary",
+                    "pet"
+                ]
+            },
+            {
+                "name": "tests/test_pet.py::TestFindPetsByStatus::test_find_pets_by_available_status",
+                "status": "passed",
+                "duration": 0.11906771999999677,
+                "start": 1764545436.3265407,
+                "stop": 1764545436.4459429,
+                "retries": 0,
+                "file_path": "tests/test_pet.py",
+                "tags": [
+                    "positive",
+                    "pet"
+                ]
+            },
+            {
+                "name": "tests/test_pet.py::TestFindPetsByStatus::test_find_pets_by_multiple_statuses",
+                "status": "passed",
+                "duration": 0.0818410620000023,
+                "start": 1764545436.450236,
+                "stop": 1764545436.5323756,
+                "retries": 0,
+                "file_path": "tests/test_pet.py",
+                "tags": [
+                    "positive",
+                    "pet"
+                ]
+            },
+            {
+                "name": "tests/test_pet.py::TestFindPetsByStatus::test_find_pets_by_sold_status",
+                "status": "passed",
+                "duration": 0.038985973000002616,
+                "start": 1764545436.5367665,
+                "stop": 1764545436.5760274,
+                "retries": 0,
+                "file_path": "tests/test_pet.py",
+                "tags": [
+                    "positive",
+                    "pet"
+                ]
+            },
+            {
+                "name": "tests/test_pet.py::TestFindPetsByStatus::test_find_pets_by_invalid_status",
+                "status": "passed",
+                "duration": 0.026370313999990458,
+                "start": 1764545436.5774353,
+                "stop": 1764545436.604055,
+                "retries": 0,
+                "file_path": "tests/test_pet.py",
+                "tags": [
+                    "negative",
+                    "pet"
+                ]
+            },
+            {
+                "name": "tests/test_pet.py::TestUpdatePet::test_update_existing_pet",
+                "status": "passed",
+                "duration": 0.0760847620000078,
+                "start": 1764545436.604559,
+                "stop": 1764545436.6809404,
+                "retries": 0,
+                "file_path": "tests/test_pet.py",
+                "tags": [
+                    "positive",
+                    "pet"
+                ]
+            },
+            {
+                "name": "tests/test_pet.py::TestUpdatePet::test_update_non_existing_pet",
+                "status": "passed",
+                "duration": 0.02467529100000121,
+                "start": 1764545436.6815612,
+                "stop": 1764545436.7065403,
+                "retries": 0,
+                "file_path": "tests/test_pet.py",
+                "tags": [
+                    "negative",
+                    "pet"
+                ]
+            },
+            {
+                "name": "tests/test_pet.py::TestDeletePet::test_delete_existing_pet",
+                "status": "passed",
+                "duration": 0.07236586199999095,
+                "start": 1764545436.7070148,
+                "stop": 1764545436.7797165,
+                "retries": 0,
+                "file_path": "tests/test_pet.py",
+                "tags": [
+                    "positive",
+                    "pet"
+                ]
+            },
+            {
+                "name": "tests/test_pet.py::TestDeletePet::test_delete_non_existing_pet",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.024349559000008014,
+                "start": 1764545436.7801983,
+                "stop": 1764545436.8099527,
+                "retries": 0,
+                "file_path": "tests/test_pet.py",
+                "tags": [
+                    "negative",
+                    "pet"
+                ],
+                "trace": "tests/test_pet.py:319: in test_delete_non_existing_pet\n    assert response.status_code in [400, 404], \\\nE   AssertionError: Expected 400 or 404, got 200\nE   assert 200 in [400, 404]\nE    +  where 200 = <Response [200]>.status_code",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "tests/test_pet.py::TestDeletePet::test_delete_pet_with_negative_id",
+                "status": "passed",
+                "duration": 0.024101255999994464,
+                "start": 1764545436.8104339,
+                "stop": 1764545436.8348742,
+                "retries": 0,
+                "file_path": "tests/test_pet.py",
+                "tags": [
+                    "boundary",
+                    "pet"
+                ]
+            },
+            {
+                "name": "tests/test_store.py::TestGetInventory::test_get_inventory",
+                "status": "passed",
+                "duration": 0.02615834399999528,
+                "start": 1764545436.8354118,
+                "stop": 1764545436.8618462,
+                "retries": 0,
+                "file_path": "tests/test_store.py",
+                "tags": [
+                    "positive",
+                    "store"
+                ]
+            },
+            {
+                "name": "tests/test_store.py::TestPlaceOrder::test_place_order_with_all_fields",
+                "status": "passed",
+                "duration": 0.049368323000003045,
+                "start": 1764545436.862291,
+                "stop": 1764545436.912095,
+                "retries": 0,
+                "file_path": "tests/test_store.py",
+                "tags": [
+                    "positive",
+                    "store"
+                ]
+            },
+            {
+                "name": "tests/test_store.py::TestPlaceOrder::test_place_order_minimal_fields",
+                "status": "passed",
+                "duration": 0.049118662999994456,
+                "start": 1764545436.9126277,
+                "stop": 1764545436.962116,
+                "retries": 0,
+                "file_path": "tests/test_store.py",
+                "tags": [
+                    "positive",
+                    "store"
+                ]
+            },
+            {
+                "name": "tests/test_store.py::TestPlaceOrder::test_place_order_with_each_status",
+                "status": "passed",
+                "duration": 0.1450838990000065,
+                "start": 1764545436.9626105,
+                "stop": 1764545437.1080637,
+                "retries": 0,
+                "file_path": "tests/test_store.py",
+                "tags": [
+                    "positive",
+                    "store"
+                ]
+            },
+            {
+                "name": "tests/test_store.py::TestPlaceOrder::test_place_order_invalid_status",
+                "status": "passed",
+                "duration": 0.02620885299999287,
+                "start": 1764545437.1086156,
+                "stop": 1764545437.1351602,
+                "retries": 0,
+                "file_path": "tests/test_store.py",
+                "tags": [
+                    "negative",
+                    "store"
+                ]
+            },
+            {
+                "name": "tests/test_store.py::TestGetOrder::test_get_existing_order",
+                "status": "passed",
+                "duration": 0.07394248399999981,
+                "start": 1764545437.1356623,
+                "stop": 1764545437.2099504,
+                "retries": 0,
+                "file_path": "tests/test_store.py",
+                "tags": [
+                    "positive",
+                    "store"
+                ]
+            },
+            {
+                "name": "tests/test_store.py::TestGetOrder::test_get_order_with_min_valid_id",
+                "status": "passed",
+                "duration": 0.07363529700000271,
+                "start": 1764545437.2105355,
+                "stop": 1764545437.284518,
+                "retries": 0,
+                "file_path": "tests/test_store.py",
+                "tags": [
+                    "boundary",
+                    "store"
+                ]
+            },
+            {
+                "name": "tests/test_store.py::TestGetOrder::test_get_order_with_max_valid_id",
+                "status": "passed",
+                "duration": 0.07444025400000243,
+                "start": 1764545437.285084,
+                "stop": 1764545437.359884,
+                "retries": 0,
+                "file_path": "tests/test_store.py",
+                "tags": [
+                    "boundary",
+                    "store"
+                ]
+            },
+            {
+                "name": "tests/test_store.py::TestGetOrder::test_get_order_exceeds_max_id",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.025220869999998285,
+                "start": 1764545437.3604298,
+                "stop": 1764545437.391083,
+                "retries": 0,
+                "file_path": "tests/test_store.py",
+                "tags": [
+                    "negative",
+                    "store"
+                ],
+                "trace": "tests/test_store.py:225: in test_get_order_exceeds_max_id\n    assert response.status_code in [400, 404], \\\nE   AssertionError: Expected 400 or 404 for ID > 10, got 200\nE   assert 200 in [400, 404]\nE    +  where 200 = <Response [200]>.status_code",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "tests/test_store.py::TestGetOrder::test_get_order_with_zero_id",
+                "status": "passed",
+                "duration": 0.02494262999999819,
+                "start": 1764545437.3916016,
+                "stop": 1764545437.4168737,
+                "retries": 0,
+                "file_path": "tests/test_store.py",
+                "tags": [
+                    "negative",
+                    "store"
+                ]
+            },
+            {
+                "name": "tests/test_store.py::TestGetOrder::test_get_order_with_negative_id",
+                "status": "passed",
+                "duration": 0.02475888499999712,
+                "start": 1764545437.4172885,
+                "stop": 1764545437.4423969,
+                "retries": 0,
+                "file_path": "tests/test_store.py",
+                "tags": [
+                    "negative",
+                    "store"
+                ]
+            },
+            {
+                "name": "tests/test_store.py::TestGetOrder::test_get_non_existing_order",
+                "status": "passed",
+                "duration": 0.02480630600000211,
+                "start": 1764545437.4428906,
+                "stop": 1764545437.4680624,
+                "retries": 0,
+                "file_path": "tests/test_store.py",
+                "tags": [
+                    "negative",
+                    "store"
+                ]
+            },
+            {
+                "name": "tests/test_store.py::TestDeleteOrder::test_delete_existing_order",
+                "status": "passed",
+                "duration": 0.07299539900000696,
+                "start": 1764545437.468556,
+                "stop": 1764545437.5419233,
+                "retries": 0,
+                "file_path": "tests/test_store.py",
+                "tags": [
+                    "positive",
+                    "store"
+                ]
+            },
+            {
+                "name": "tests/test_store.py::TestDeleteOrder::test_delete_non_existing_order",
+                "status": "passed",
+                "duration": 0.024975693999998327,
+                "start": 1764545437.5424616,
+                "stop": 1764545437.5677714,
+                "retries": 0,
+                "file_path": "tests/test_store.py",
+                "tags": [
+                    "negative",
+                    "store"
+                ]
+            },
+            {
+                "name": "tests/test_store.py::TestDeleteOrder::test_delete_order_with_negative_id",
+                "status": "passed",
+                "duration": 0.02429682900000074,
+                "start": 1764545437.5682442,
+                "stop": 1764545437.5928779,
+                "retries": 0,
+                "file_path": "tests/test_store.py",
+                "tags": [
+                    "negative",
+                    "store"
+                ]
+            },
+            {
+                "name": "tests/test_store.py::TestDeleteOrder::test_delete_order_with_zero_id",
+                "status": "passed",
+                "duration": 0.024214755999999227,
+                "start": 1764545437.593338,
+                "stop": 1764545437.617862,
+                "retries": 0,
+                "file_path": "tests/test_store.py",
+                "tags": [
+                    "boundary",
+                    "store"
+                ]
+            },
+            {
+                "name": "tests/test_user.py::TestCreateUser::test_create_user_with_all_fields",
+                "status": "passed",
+                "duration": 0.07475540699999783,
+                "start": 1764545437.6184213,
+                "stop": 1764545437.693527,
+                "retries": 0,
+                "file_path": "tests/test_user.py",
+                "tags": [
+                    "positive",
+                    "user"
+                ]
+            },
+            {
+                "name": "tests/test_user.py::TestCreateUser::test_create_user_with_minimal_fields",
+                "status": "passed",
+                "duration": 0.04878102100001058,
+                "start": 1764545437.6940763,
+                "stop": 1764545437.7431965,
+                "retries": 0,
+                "file_path": "tests/test_user.py",
+                "tags": [
+                    "positive",
+                    "user"
+                ]
+            },
+            {
+                "name": "tests/test_user.py::TestCreateUsersWithArray::test_create_users_with_array",
+                "status": "passed",
+                "duration": 0.16893092899999118,
+                "start": 1764545437.7437131,
+                "stop": 1764545437.9130108,
+                "retries": 0,
+                "file_path": "tests/test_user.py",
+                "tags": [
+                    "positive",
+                    "user"
+                ]
+            },
+            {
+                "name": "tests/test_user.py::TestCreateUsersWithArray::test_create_users_empty_array",
+                "status": "passed",
+                "duration": 0.024641989000002695,
+                "start": 1764545437.913569,
+                "stop": 1764545437.9385192,
+                "retries": 0,
+                "file_path": "tests/test_user.py",
+                "tags": [
+                    "boundary",
+                    "user"
+                ]
+            },
+            {
+                "name": "tests/test_user.py::TestCreateUsersWithList::test_create_users_with_list",
+                "status": "passed",
+                "duration": 0.1692920160000071,
+                "start": 1764545437.9389994,
+                "stop": 1764545438.1086106,
+                "retries": 0,
+                "file_path": "tests/test_user.py",
+                "tags": [
+                    "positive",
+                    "user"
+                ]
+            },
+            {
+                "name": "tests/test_user.py::TestGetUser::test_get_existing_user",
+                "status": "passed",
+                "duration": 0.07339698999999911,
+                "start": 1764545438.1092052,
+                "stop": 1764545438.1829553,
+                "retries": 0,
+                "file_path": "tests/test_user.py",
+                "tags": [
+                    "positive",
+                    "user"
+                ]
+            },
+            {
+                "name": "tests/test_user.py::TestGetUser::test_get_non_existing_user",
+                "status": "passed",
+                "duration": 0.024490755999998726,
+                "start": 1764545438.1835399,
+                "stop": 1764545438.2083468,
+                "retries": 0,
+                "file_path": "tests/test_user.py",
+                "tags": [
+                    "negative",
+                    "user"
+                ]
+            },
+            {
+                "name": "tests/test_user.py::TestGetUser::test_get_user_with_special_characters",
+                "status": "passed",
+                "duration": 0.02471100500000034,
+                "start": 1764545438.2087955,
+                "stop": 1764545438.233823,
+                "retries": 0,
+                "file_path": "tests/test_user.py",
+                "tags": [
+                    "negative",
+                    "user"
+                ]
+            },
+            {
+                "name": "tests/test_user.py::TestGetUser::test_get_user_with_empty_username",
+                "status": "passed",
+                "duration": 0.024311928999999566,
+                "start": 1764545438.2342613,
+                "stop": 1764545438.2589083,
+                "retries": 0,
+                "file_path": "tests/test_user.py",
+                "tags": [
+                    "boundary",
+                    "user"
+                ]
+            },
+            {
+                "name": "tests/test_user.py::TestUpdateUser::test_update_existing_user",
+                "status": "passed",
+                "duration": 0.0980316129999963,
+                "start": 1764545438.2593422,
+                "stop": 1764545438.3577485,
+                "retries": 0,
+                "file_path": "tests/test_user.py",
+                "tags": [
+                    "positive",
+                    "user"
+                ]
+            },
+            {
+                "name": "tests/test_user.py::TestUpdateUser::test_update_non_existing_user",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.02490109099999671,
+                "start": 1764545438.3583627,
+                "stop": 1764545438.388765,
+                "retries": 0,
+                "file_path": "tests/test_user.py",
+                "tags": [
+                    "negative",
+                    "user"
+                ],
+                "trace": "tests/test_user.py:216: in test_update_non_existing_user\n    assert response.status_code in [400, 404], \\\nE   AssertionError: Expected 400 or 404, got 200\nE   assert 200 in [400, 404]\nE    +  where 200 = <Response [200]>.status_code",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "tests/test_user.py::TestDeleteUser::test_delete_existing_user",
+                "status": "passed",
+                "duration": 0.07315798399999807,
+                "start": 1764545438.3892796,
+                "stop": 1764545438.4627786,
+                "retries": 0,
+                "file_path": "tests/test_user.py",
+                "tags": [
+                    "positive",
+                    "user"
+                ]
+            },
+            {
+                "name": "tests/test_user.py::TestDeleteUser::test_delete_non_existing_user",
+                "status": "passed",
+                "duration": 0.024569021999994334,
+                "start": 1764545438.463308,
+                "stop": 1764545438.4882278,
+                "retries": 0,
+                "file_path": "tests/test_user.py",
+                "tags": [
+                    "negative",
+                    "user"
+                ]
+            },
+            {
+                "name": "tests/test_user.py::TestUserLogin::test_login_user",
+                "status": "passed",
+                "duration": 0.07515967300000881,
+                "start": 1764545438.4887533,
+                "stop": 1764545438.5643225,
+                "retries": 0,
+                "file_path": "tests/test_user.py",
+                "tags": [
+                    "positive",
+                    "user"
+                ]
+            },
+            {
+                "name": "tests/test_user.py::TestUserLogin::test_login_invalid_credentials",
+                "status": "passed",
+                "duration": 0.025556265999995276,
+                "start": 1764545438.565042,
+                "stop": 1764545438.5910292,
+                "retries": 0,
+                "file_path": "tests/test_user.py",
+                "tags": [
+                    "negative",
+                    "user"
+                ]
+            },
+            {
+                "name": "tests/test_user.py::TestUserLogin::test_login_missing_username",
+                "status": "passed",
+                "duration": 0.024861238000006836,
+                "start": 1764545438.591567,
+                "stop": 1764545438.6167796,
+                "retries": 0,
+                "file_path": "tests/test_user.py",
+                "tags": [
+                    "negative",
+                    "user"
+                ]
+            },
+            {
+                "name": "tests/test_user.py::TestUserLogin::test_login_missing_password",
+                "status": "passed",
+                "duration": 0.02489422899999738,
+                "start": 1764545438.61728,
+                "stop": 1764545438.6425045,
+                "retries": 0,
+                "file_path": "tests/test_user.py",
+                "tags": [
+                    "negative",
+                    "user"
+                ]
+            },
+            {
+                "name": "tests/test_user.py::TestUserLogout::test_logout_user",
+                "status": "passed",
+                "duration": 0.025054197000002887,
+                "start": 1764545438.643033,
+                "stop": 1764545438.668422,
+                "retries": 0,
+                "file_path": "tests/test_user.py",
+                "tags": [
+                    "positive",
+                    "user"
+                ]
+            }
+        ]
+    }
+}

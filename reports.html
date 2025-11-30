@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Petstore API Test Reports</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 800px; margin: 50px auto; padding: 20px; }
+    h1 { color: #333; }
+    .report-list { list-style: none; padding: 0; }
+    .report-list li { margin: 10px 0; }
+    .report-list a { 
+      display: inline-block; 
+      padding: 10px 20px; 
+      background: #0066cc; 
+      color: white; 
+      text-decoration: none; 
+      border-radius: 5px;
+    }
+    .report-list a:hover { background: #0052a3; }
+    .timestamp { color: #666; font-size: 14px; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Petstore API Test Reports</h1>
+  <ul class="report-list">
+    <li><a href="index.html">HTML Test Report</a></li>
+    <li><a href="ctrf-report.json">CTRF JSON Report</a></li>
+  </ul>
+  <p class="timestamp">Last updated: $(date -u '+%Y-%m-%d %H:%M:%S UTC')</p>
+</body>
+</html>
